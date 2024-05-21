@@ -5,7 +5,7 @@
 - Out: Tue, the 21st of May at 12:00am
 - Due: Wed, the 28th of May at 11:59pm
 
-### assign01.sml
+### assign01-all.sml
 
 The description of Assign01 is given in the
 file assign01.sml. If you are unclear about
