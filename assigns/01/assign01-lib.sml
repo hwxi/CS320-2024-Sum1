@@ -16,6 +16,12 @@ exception MyNotImplementedExn
 
 (* ****** ****** *)
 
+fun
+myassert(claim: bool): unit =
+if claim then () else raise MyAssertExn
+
+(* ****** ****** *)
+
 (*
 All the arithmetic operations
 All the primitive comparison operations

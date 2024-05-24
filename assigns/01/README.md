@@ -1,9 +1,9 @@
-# CS320-2023-Spring
+# CS320-2024-Sum1
 
 ## Assign01: the 1st assignment
 
 - Out: Tue, the 21st of May at 12:00am
-- Due: Wed, the 28th of May at 11:59pm
+- Due: Wed, the 29th of May at 11:59pm
 
 ### assign01-all.sml
 

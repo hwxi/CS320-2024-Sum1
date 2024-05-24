@@ -7,7 +7,7 @@ of the factorial function.
 (* ****** ****** *)
 
 fun fact_rec(n: int): int =
-    if n > 0 then n * fact_rec(n-1) else 1
+  if n > 0 then n * fact_rec(n-1) else 1
 
 (* ****** ****** *)
 
@@ -21,4 +21,4 @@ val fact10_rec = fact_rec(10)
 val fact10_trec = fact_trec(10)
 (* ****** ****** *)
 
-(* end of [fact.sml] *)
+(* end of [lectures/lec-05-21-fact.sml] *)

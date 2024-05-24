@@ -14,4 +14,4 @@ fun area_of(rad: real): real =
 
 (* ****** ****** *)
 
-(* end of [area.sml] *)
+(* end of [lectures/lec-05-21-area.sml] *)
