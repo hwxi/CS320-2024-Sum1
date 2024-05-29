@@ -2,7 +2,8 @@
 use (* for class library *)
 "./../../../../mylib/SML/mylib-cls.sml";
 (* ****** ****** *)
-use "./../MySolution/SML/assign03-02.sml";
+use
+"./../../MySolution/SML/assign03-02.sml";
 (* ****** ****** *)
 val () =
 assert320_some

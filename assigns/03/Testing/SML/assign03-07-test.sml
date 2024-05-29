@@ -1,6 +1,6 @@
 (* ****** ****** *)
 use
-"./../MySolution/SML/assign03-07.sml";
+"./../../MySolution/SML/assign03-07.sml";
 (* ****** ****** *)
 
 local
