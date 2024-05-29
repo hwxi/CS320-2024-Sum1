@@ -55,7 +55,7 @@ def mylist_print(xs):
         if (xs.ctag > 0):
             if (n0 > 0): print(sep,end='')
             print(xs.arg1,end=''); auxlst(xs.arg2, n0+1)
-    print("(", end=''); auxlst(xs, 0); print(")", end='')
+    print("my(", end=''); auxlst(xs, 0); print(")", end='')
 # end-of-[mylist_print]
 
 ####################################################
