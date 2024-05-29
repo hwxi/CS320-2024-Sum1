@@ -1,8 +1,8 @@
 (* ****** ****** *)
 use (* for class library *)
-"./../../../../mysmlib/mysmlib-cls.sml";
+"./../../../../mylib/SML/mylib-cls.sml";
 (* ****** ****** *)
-use "./../../MySolution/SML/assign01-03.sml";
+use "./../../MySolution/SML/assign02-03.sml";
 (* ****** ****** *)
 
 val list_size = List.length
@@ -70,9 +70,9 @@ xs = [2,1,2,1]
 (* ****** ****** *)
 val ys = xlist_remove_reverse(xs)
 val () = assert320_some
-(list_of_xlist(xs)=list_of_xlist(ys), "assign01-03-test:1")
-val () = assert320_some(nreverse(ys)=0, "assign01-03-test:1")
-val () = assert320_some(nappend(xs)=nappend(ys), "assign01-03-test:1")
+(list_of_xlist(xs)=list_of_xlist(ys), "assign02-03-test:1")
+val () = assert320_some(nreverse(ys)=0, "assign02-03-test:1")
+val () = assert320_some(nappend(xs)=nappend(ys), "assign02-03-test:1")
 (* ****** ****** *)
 (*
 val xs = xlist_cons(0, xs)
@@ -88,16 +88,16 @@ val xs = xlist_append(xs, xs)
 (* ****** ****** *)
 val ys = xlist_remove_reverse(xs)
 val () = assert320_some
-(list_of_xlist(xs)=list_of_xlist(ys), "assign01-03-test:2")
-val () = assert320_some(nreverse(ys)=0, "assign01-03-test:2")
-val () = assert320_some(nappend(xs)=nappend(ys), "assign01-03-test:2")
+(list_of_xlist(xs)=list_of_xlist(ys), "assign02-03-test:2")
+val () = assert320_some(nreverse(ys)=0, "assign02-03-test:2")
+val () = assert320_some(nappend(xs)=nappend(ys), "assign02-03-test:2")
 (* ****** ****** *)
 
-val () = print("Assign01-03-test passed!\n")
+val () = print("Assign02-03-test passed!\n")
 
 (* ****** ****** *)
 end (* end-of-local *)
 
 (* ****** ****** *)
 
-(* end of [CS320-2023-Sum1-assign01-03-test.sml] *)
+(* end of [CS320-2024-Sum1-assign02-03-test.sml] *)

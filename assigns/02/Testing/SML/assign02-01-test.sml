@@ -1,8 +1,8 @@
 (* ****** ****** *)
 use (* for class library *)
-"./../../../../mysmlib/mysmlib-cls.sml";
+"./../../../../mylib/SML/mylib-cls.sml";
 (* ****** ****** *)
-use "./../../MySolution/SML/assign01-01.sml";
+use "./../../MySolution/SML/assign02-01.sml";
 (* ****** ****** *)
 
 val list_size = List.length
@@ -20,21 +20,21 @@ val xs = xlist_reverse(xs)
 val xs = xlist_append(xs, xs)
 (* ****** ****** *)
 val () =
-assert320_some(xlist_size(xs)=list_size(list_of_xlist(xs)), "assign01-01-test:1")
+assert320_some(xlist_size(xs)=list_size(list_of_xlist(xs)), "assign02-01-test:1")
 (* ****** ****** *)
 val xs = xlist_cons(1, xs)
 val xs = xlist_snoc(xs, 2)
 val xs = xlist_reverse(xs)
 val xs = xlist_append(xs, xs)
 val () =
-assert320_some(xlist_size(xs)=list_size(list_of_xlist(xs)), "assign01-01-test:2")
+assert320_some(xlist_size(xs)=list_size(list_of_xlist(xs)), "assign02-01-test:2")
 (* ****** ****** *)
 
-val () = print("Assign01-01-test passed!\n")
+val () = print("Assign02-01-test passed!\n")
 
 (* ****** ****** *)
 end (* end-of-local *)
 
 (* ****** ****** *)
 
-(* end of [CS320-2023-Sum1-assign01-01-test.sml] *)
+(* end of [CS320-2024-Sum1-assign02-01-test.sml] *)

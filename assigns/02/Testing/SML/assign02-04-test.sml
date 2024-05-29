@@ -1,7 +1,7 @@
 (* ****** ****** *)
 
 use
-"./../../MySolution/SML/assign01-04.sml";
+"./../../MySolution/SML/assign02-04.sml";
 
 (* ****** ****** *)
 
@@ -28,11 +28,11 @@ val () = assert(str2int_opt("0123") = SOME 123)
 val () = assert(str2int_opt("1230") = SOME 1230)
 
 (* ****** ****** *)
-val () = print("Assign01-04-test passed!\n")
+val () = print("Assign02-04-test passed!\n")
 (* ****** ****** *)
 
 end (* end-of-local *)
 
 (* ****** ****** *)
 
-(* end of [CS320-2023-Sum1-assign01-04-test.sml] *)
+(* end of [CS320-2023-Sum1-assign02-04-test.sml] *)
