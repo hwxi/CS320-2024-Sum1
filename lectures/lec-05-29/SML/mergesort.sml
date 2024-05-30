@@ -51,4 +51,4 @@ val ys = PolyML.print(ys)
 
 (* ****** ****** *)
 
-(* end of [lectures/lec-05-29/quicksort.sml] *)
+(* end of [lectures/lec-05-29/mergesort.sml] *)
