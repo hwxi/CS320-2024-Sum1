@@ -16,6 +16,11 @@ exception NotImplemented320
 		       
 (* ****** ****** *)
 
+val chr = Char.chr
+val ord = Char.ord
+
+(* ****** ****** *)
+
 val implode = String.implode
 val explode = String.explode
 
