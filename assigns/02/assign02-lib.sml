@@ -16,6 +16,11 @@ exception NotImplemented320
 		       
 (* ****** ****** *)
 
+val implode = String.implode
+val explode = String.explode
+
+(* ****** ****** *)
+
 fun
 list_append
 (xs: 'a list, ys: 'a list): 'a list =
@@ -155,7 +160,7 @@ case ys of
 )
 )
 
-in
+in(*let*)
 
 case xs of
   nil => []
