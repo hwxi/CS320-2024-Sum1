@@ -61,7 +61,6 @@ def mylist_sortedq(xs):
 ys = mylist_mergesort(xs)
 print("ys = ",end=''); mylist_print(ys); print();
 assert(mylist_sortedq(ys))
-print("ys = ",end=''); mylist_print(ys); print();
 ####################################################
 print("Assign02-07-test passed!\n")
 ####################################################
