@@ -70,6 +70,9 @@ end
 
 (* ****** ****** *)
 
+(*
+Here is one test:
+*)
 val xs = (2, 4, 5, 3, 1)
 val ys = PolyML.print(sort5(xs))
 
