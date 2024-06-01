@@ -1,6 +1,6 @@
 (* ****** ****** *)
 
-use "../Solution/date_cmpr.sml";
+use "../MySolution/date_cmpr.sml";
 
 (* ****** ****** *)
 
