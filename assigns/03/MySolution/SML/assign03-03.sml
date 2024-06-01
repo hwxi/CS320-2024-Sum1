@@ -1,5 +1,6 @@
 (* ****** ****** *)
-use "./../../../mysmlib/mysmlib-cls.sml";
+use
+"./../../../../mylib/SML/mylib-cls.sml";
 (* ****** ****** *)
 
 (*

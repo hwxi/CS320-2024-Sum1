@@ -1,6 +1,6 @@
 (* ****** ****** *)
 use
-"./../../../mysmlib/mysmlib-cls.sml";
+"./../../../../mylib/SML/mylib-cls.sml";
 (* ****** ****** *)
 (*
 HX-2023-06-05: 10 point
