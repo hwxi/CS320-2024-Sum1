@@ -1,6 +1,5 @@
 (* ****** ****** *)
-use
-"./../../../../mylib/SML/mylib-cls.sml";
+use "./../../assign03-lib.sml";
 (* ****** ****** *)
 (*
 HX-2023-06-05: 10 point
