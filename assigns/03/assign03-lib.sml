@@ -179,6 +179,109 @@ list_foldleft
 (* ****** ****** *)
 (* ****** ****** *)
 
+fun
+foreach_to_map_list
+(
+foreach:
+('xs * ('x0->unit))->unit)
+:
+('xs * ('x0 -> 'y0)) -> 'y0 list
+=
+(
+fn(xs, fopr) =>
+list_reverse
+(
+foreach_to_foldleft
+(foreach)(xs, nil, fn(r0, x0) => fopr(x0) :: r0)))
+
+(* ****** ****** *)
+(* ****** ****** *)
+
+fun
+int1_foreach
+(n0: int, work: int -> unit) =
+let
+fun
+loop(i0: int): unit =
+if i0 >= n0
+then ()
+else (work(i0); loop(i0+1)) in loop(0(*i0*))
+end (* end of [int1_foreach(n0, work)]: let *)
+
+(* ****** ****** *)
+
+fun
+list_foreach
+(xs: 'a list, work: 'a -> unit): unit =
+(
+case xs of
+  nil => ()
+| (x1::xs) => (work(x1); list_foreach(xs, work))
+)
+
+(* ****** ****** *)
+(* ****** ****** *)
+
+fun
+int1_forall
+(xs, test) =
+foreach_to_forall(int1_foreach)(xs, test)
+
+fun
+list_forall
+(xs, test) =
+foreach_to_forall(list_foreach)(xs, test)
+
+(* ****** ****** *)
+(* ****** ****** *)
+
+fun
+int1_foldleft
+(xs, r0, fopr) =
+foreach_to_foldleft(int1_foreach)(xs, r0, fopr)
+
+fun
+list_foldleft
+(xs, r0, fopr) =
+foreach_to_foldleft(list_foreach)(xs, r0, fopr)
+
+(* ****** ****** *)
+(* ****** ****** *)
+
+fun
+int1_map_list
+ ( n0, fopr ) =
+(
+  foreach_to_map_list(int1_foreach)(n0, fopr))
+
+fun
+list_map_list
+ ( n0, fopr ) =
+(
+  foreach_to_map_list(list_foreach)(n0, fopr))
+
+val list_map = list_map_list
+
+(* ****** ****** *)
+(* ****** ****** *)
+
+val
+int1_foldright =
+fn(xs,r0,fopr) =>
+int1_foldleft
+(xs, r0, fn(r0, x0) => fopr(xs-1-x0, r0))
+
+(* ****** ****** *)
+
+val
+list_foldright =
+fn(xs, r0, fopr) =>
+list_foldleft
+(list_reverse(xs), r0, fn(r, x) => fopr(x, r))
+
+(* ****** ****** *)
+(* ****** ****** *)
+
 (*
 val
 list_append =
