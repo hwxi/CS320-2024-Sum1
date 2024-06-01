@@ -2,7 +2,7 @@
 
 ## Assign03: Higher-Order!
 
-- Due: Tueday, the 10th of June at 11:59pm
+- Due: Monday, the 10th of June at 11:59pm
 
   (Please note that Midterm-1 is on the 5th of June)
   
