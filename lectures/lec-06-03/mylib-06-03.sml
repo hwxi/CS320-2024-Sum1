@@ -1,8 +1,41 @@
 (* ************************************************ *)
+(* ************************************************ *)
 (*
 HX-2024-06-03:
 Welcome to a zoo of combinators!
 *)
+(* ************************************************ *)
+(* ************************************************ *)
+
+val chr = Char.chr
+val ord = Char.ord
+val strsub = String.sub
+val strlen = String.size
+val implode = String.implode
+
+(* ************************************************ *)
+(* ************************************************ *)
+
+fun
+list_exists
+(xs: 'a list, test: 'a -> bool): bool =
+(
+case xs of
+  [] => false
+| x1 :: xs =>
+  if test(x1)
+  then true else list_exists(xs, test))
+
+fun
+list_forall
+(xs: 'a list, test: 'a -> bool): bool =
+(
+case xs of
+  [] => true
+| x1 :: xs =>
+  if test(x1)
+  then list_forall(xs, test) else false)
+
 (* ************************************************ *)
 
 fun
@@ -43,6 +76,33 @@ fun
 list_maprev (* = list_map_list *)
 (xs: 'a list, fopr: 'a -> 'b): 'b list =
 list_foldl(xs, [], fn(r0, x1) => fopr(x1) :: r0)
+
+(* ************************************************ *)
+(* ************************************************ *)
+
+fun
+int1_forall
+(xs: int, test: int -> bool): bool =
+let
+fun
+loop(i: int): bool =
+  if i >= xs then true else
+  (if test(i) then loop(i+1) else false)
+in
+  loop(0)
+end (* let *) (* int1_forall(xs, test) *)
+
+fun
+int1_exists
+(xs: int, test: int -> bool): bool =
+let
+fun
+loop(i: int): bool =
+  if i >= xs then false else
+  (if test(i) then true else loop(i+1))
+in
+  loop(0)
+end (* let *) (* int1_exists(xs, test) *)
 
 (* ************************************************ *)
 
@@ -106,27 +166,43 @@ list_range
 int1_map_list(n0, fn i => i)
 
 (* ************************************************ *)
+(* ************************************************ *)
+
+fun
+string_exists
+(cs: string, test: char -> bool): bool =
+int1_exists(strlen(cs), fn(i) => test(strsub(cs, i)))
+
+fun
+string_forall
+(cs: string, test: char -> bool): bool =
+int1_forall(strlen(cs), fn(i) => test(strsub(cs, i)))
+
+(* ************************************************ *)
 
 fun
 string_foldl
 (cs: string, r0: 'a, f0: ('a * char) -> 'a): 'a =
 int1_foldl
-( String.size(cs)
-, r0, fn(r0, i1) => f0(r0, String.sub(cs, i1)))
+( strlen(cs)
+, r0
+, fn(r0, i1) => f0(r0, strsub(cs, i1)))
 
 fun
 string_foldr
 (cs: string, r0: 'a, f0: (char * 'a) -> 'a): 'a =
 int1_foldr
-( String.size(cs)
-, r0, fn(i1, r0) => f0(String.sub(cs, i1), r0))
+( strlen(cs)
+, r0, fn(i1, r0) => f0(strsub(cs, i1), r0))
 
 fun
 string_map_list(cs, fopr) =
 string_foldr(cs, [], fn(ch, r0) => fopr(ch) :: r0)
 
+(* ************************************************ *)
+
 fun explode(cs) = string_map_list(cs, fn c => c)
 
 (* ************************************************ *)
 
-(* end of [lectures/lec-06-03/mylist-06-03.sml] *)
+(* end of [lectures/lec-06-03/mylib-06-03.sml] *)
