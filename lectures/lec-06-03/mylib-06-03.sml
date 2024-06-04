@@ -67,13 +67,13 @@ end
 (* ************************************************ *)
 
 fun pow(x: int, n: int): int =
-int1_foldl(n, 1, fn(r, i) => r * x)
+int0_foldl(n, 1, fn(r, _) => r * x)
 
 fun fact(n: int): int =
 int1_foldl(n, 1, fn(r, i) => (i+1)*r)
 
 fun fibo(n: int): int =
-#1(int1_foldl(n, (0, 1), fn((f0, f1), _) => (f1, f0+f1)))
+#1(int0_foldl(n, (0, 1), fn((f0, f1), _) => (f1, f0+f1)))
 
 (* ************************************************ *)
 
