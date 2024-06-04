@@ -1,6 +1,6 @@
 (* ************************************************ *)
 (*
-HX-2024-06-01:
+HX-2024-06-03:
 Welcome to a zoo of combinators!
 *)
 (* ************************************************ *)
@@ -47,6 +47,11 @@ list_foldl(xs, [], fn(r0, x1) => fopr(x1) :: r0)
 (* ************************************************ *)
 
 fun
+int0_foldl
+(xs: int, r0: 'a, f0: 'a * unit -> 'a): 'a =
+int1_foldl(xs, r0, fn(r0, _) => f0(r0, ()))
+
+and
 int1_foldl
 (xs: int, r0: 'a, f0: 'a * int -> 'a): 'a =
 let
@@ -56,7 +61,7 @@ in
   loop(0, r0)
 (* Python:
    res = r0;
-   for i in range(xs): res = f0(i, res); res *)
+   for i in range(xs): res = f0(res, i); res *)
 end
 
 (* ************************************************ *)
@@ -73,10 +78,17 @@ fun fibo(n: int): int =
 (* ************************************************ *)
 
 fun
+int0_foldr
+(xs: int, r0: 'a, f0: unit * 'a -> 'a): 'a =
+int1_foldr(xs, r0, fn(_, r0) => f0((), r0))
+
+and
 int1_foldr
 (xs: int, r0: 'a, f0: int * 'a -> 'a): 'a =
 if xs <= 0 then r0
            else int1_foldr(xs-1, f0(xs-1, r0), f0)
+
+(* ************************************************ *)
 
 (*
 HX: list_tabulate
@@ -89,7 +101,9 @@ int1_foldr(xs, [], fn(x1, r0) => fopr(x1) :: r0)
 (* ************************************************ *)
 
 fun
-list_range(n: int): int list = int1_map_list(n, fn x1 => x1)
+list_range
+(n0: int): int list =
+int1_map_list(n0, fn i => i)
 
 (* ************************************************ *)
 
