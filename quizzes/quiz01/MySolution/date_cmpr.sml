@@ -28,4 +28,3 @@ Please give your implementation of [date_cmpr] below *)
 (* ****** ****** *)
 
 (* end of [quizzes/quiz01/date_cmpr.sml] *)
-
