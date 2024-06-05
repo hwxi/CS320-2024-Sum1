@@ -65,7 +65,7 @@ list_foldl
 fun
 list_append
 (xs: 'a list, ys: 'a list): 'a list =
-list_foldr(xs, ys, fn(r0, x1) => x1 :: r0)
+list_foldr(xs, ys, fn(x1, r0) => x1 :: r0)
 
 fun
 list_map (* = list_map_list *)
