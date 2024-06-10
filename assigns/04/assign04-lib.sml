@@ -99,6 +99,25 @@ foreach_to_foldleft
 (* ****** ****** *)
 
 fun
+foreach_to_filter_list
+(
+foreach:
+('xs * ('x0->unit))->unit)
+:
+('xs * ('x0 -> bool)) -> 'x0 list
+=
+(
+fn(xs, test) =>
+list_reverse
+(
+foreach_to_foldleft(foreach)
+( xs, nil
+, fn(r0, x0) => if test(x0) then x0 :: r0 else r0)))
+
+(* ****** ****** *)
+(* ****** ****** *)
+
+fun
 int1_foreach
 (n0: int, work: int -> unit) =
 let
@@ -162,6 +181,23 @@ list_map_list
   foreach_to_map_list(list_foreach)(n0, fopr))
 
 val list_map = list_map_list
+
+(* ****** ****** *)
+(* ****** ****** *)
+
+fun
+int1_filter_list
+ ( n0, fopr ) =
+(
+  foreach_to_filter_list(int1_foreach)(n0, fopr))
+
+fun
+list_filter_list
+ ( n0, fopr ) =
+(
+  foreach_to_filter_list(list_foreach)(n0, fopr))
+
+val list_filter = list_filter_list
 
 (* ****** ****** *)
 (* ****** ****** *)
