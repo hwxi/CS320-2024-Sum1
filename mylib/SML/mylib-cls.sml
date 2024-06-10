@@ -771,14 +771,24 @@ fun
 list_z2foreach
 ( xs: 'a list
 , ys: 'b list
-, work: ('a * 'b) -> unit): unit =
+, work2: ('a * 'b) -> unit): unit =
 (
 case (xs, ys) of
   (nil, _) => ()
 | (_, nil) => ()
 | (x1 :: xs, y1 :: ys) =>
-  (work(x1, y1); list_z2foreach(xs, ys, work))
+  (work2(x1, y1); list_z2foreach(xs, ys, work2))
 )
+
+(*
+HX: this one is less efficient than the above one
+fun
+list_z2foreach
+( xs: 'a list
+, ys: 'b list
+, work2: ('a * 'b) -> unit): unit =
+list_foreach(list_zip2(xs, ys), fn (x1, y1) => work2(x1, y1))
+*)
 
 (* ****** ****** *)
 
@@ -806,6 +816,9 @@ list_forall(list_zip2(xs, ys), test)
 
 (* ****** ****** *)
 
+(*
+concat([1], [2,3], [1,2,3]) = [1,2,3,1,2,3]
+*)
 fun
 list_concat
 (xss: 'a list list): 'a list =

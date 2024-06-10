@@ -193,6 +193,7 @@ foreach_to_foldleft(foreach)
 (* ****** ****** *)
 (* ****** ****** *)
 
+(*
 fun
 foreach_to_iforeach
 ( foreach
@@ -202,6 +203,37 @@ let
 val _ =
 foreach_to_foldleft(foreach)
 (xs, 0, fn(p, x) => (iwork(p, x); p+1)) in () end
+*)
+
+fun
+foreach_to_iforeach
+( foreach
+: ('xs, 'x0) foreach): ('xs, 'x0) iforeach = fn(xs, iwork) =>
+let
+val count = ref(0)
+in
+foreach
+( xs,
+  fn(x1) => let val i = !count
+                val () = count := i + 1 in iwork(i, x1) end
+)
+end
+
+(* ****** ****** *)
+
+fun
+foreach_to_length
+( foreach
+: ('xs, 'x0) foreach): ('xs -> int) = fn(xs) =>
+let
+val count = ref(0)
+in
+foreach
+( xs,
+  fn(x1) => let val i = !count
+                val () = count := i + 1 in () end
+); !count
+end
 
 (* ****** ****** *)
 (* ****** ****** *)
@@ -306,6 +338,19 @@ int1_filter_list
  ( n0, fopr ) =
 (
   foreach_to_filter_list(int1_foreach)(n0, fopr))
+
+(*
+fun
+list_filter
+(xs: 'a list, test: 'a -> bool): 'a list =
+(
+case xs of
+  [] => []
+  x1 :: xs =>
+  if test(x1)
+  then x1 :: list_filter(xs, test) else list_filter(xs, test)
+)
+*)
 
 fun
 list_filter_list
