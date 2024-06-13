@@ -541,7 +541,6 @@ class strcon:
 class strcon_nil(strcon):
     def __init__(self):
         self.ctag = 0
-        return None
 # end-of-class(strcon_nil)
 
 class strcon_cons(strcon):
@@ -549,7 +548,6 @@ class strcon_cons(strcon):
         self.ctag = 1
         self.arg1 = arg1
         self.arg2 = arg2
-        return None
     def get_arg1(self):
         return self.arg1
     def get_arg2(self):
@@ -594,6 +592,29 @@ def stream_iforeach(fxs, iwork):
     return foreach_to_iforeach(stream_foreach)(fxs, iwork)
 
 ###########################################################################
+
+# (*
+
+# fun
+# list_streamize
+# (xs: 'a list): 'a stream = fn() =>
+# case xs of
+#   nil => strcon_nil
+# | x1 :: xs => strcon_cons(x1, list_streamize(xs)
+
+# fun
+# list_streamize
+# (xs: 'a list): 'a stream =
+# let
+#    fun helper(xs: 'a list): 'a strcon =
+#      case xs of
+#        nil => strcon_nil
+#      | x1 :: xs => strcon_cons(x1, fn() => helper(xs)
+# in
+#    fn() => helper(xs)
+# end
+
+# *)
 
 def fnlist_streamize(xs):
     def helper(xs):
