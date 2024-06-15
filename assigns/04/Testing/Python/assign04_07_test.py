@@ -8,9 +8,9 @@ from assign04_07 import *
 #      lambda i, x: i < 1000 and not(print(i,":",x)))
 ######################################################
 assert\
-    (len(stream_get_at(doublet_stream_from('water'), 672))==5)
+    (len(stream_get_at(doublet_stream_from('water'), 125))==2)
 assert\
-    (len(stream_get_at(doublet_stream_from('water'), 673))==6)
+    (len(stream_get_at(doublet_stream_from('water'), 126))==3)
 ######################################################
 print("Assign04-07-test passed!")
 ######################################################
