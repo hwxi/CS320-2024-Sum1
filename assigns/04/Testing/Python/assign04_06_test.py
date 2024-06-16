@@ -61,4 +61,4 @@ assert(stream_forall\
 print("Assign03-06-test passed!")
 ######################################################
 
-#### end of [CS320-2023-Spring-assign03_06_test.py] ####
+#### end of [CS320-2023-Spring-assign04_06_test.py] ####
