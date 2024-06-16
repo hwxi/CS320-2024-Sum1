@@ -5,9 +5,9 @@ import sys
 ####################################################
 sys.setrecursionlimit(16000)
 ####################################################
-sys.path.append('./../../../../mypylib')
+sys.path.append('./../..')
 ####################################################
-from mypylib_cls import *
+from assign05_lib import *
 ####################################################
 sys.path.append('./../../MySolution/Python')
 from assign05_03 import *

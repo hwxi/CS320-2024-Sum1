@@ -71,7 +71,7 @@ val () =
 assert320
 (
 stream_length
-( stream_make_filter
+( stream_filter
   ( stream_permute_list[1,2,3,4,5]
   , fn xs => not(perm_capture_231(xs)))) = 42
 )
