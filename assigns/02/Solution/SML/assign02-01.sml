@@ -75,6 +75,43 @@ end
 
 (* ****** ****** *)
 
+fun
+foreach_to_foldleft
+( foreach
+: ('xs * ('x0 -> unit)) -> unit
+)
+: ('xs * 'r0 * ('r0*'x0 -> 'r0)) -> 'r0 =
+fn(xs, r0, fopr) =>
+let
+val res = ref(r0)
+in
+foreach
+( xs
+, fn(x0) => res := fopr(!res, x0)); !res
+end (* end of [foreach_to_foldleft]: let *)
+
+(* ****** ****** *)
+
+fun
+foldleft_to_length
+( foldleft
+: ('xs * int * (int*'x0 -> int)) -> int)
+: ('xs -> int) =
+fn(xs: 'xs) => foldleft(xs, 0, fn(r0,x0) => r0+1)
+
+(* ****** ****** *)
+
+fun
+foreach_to_length(foreach) =
+foldleft_to_length(foreach_to_foldleft(foreach))
+
+(* ****** ****** *)
+
+fun
+xlist_size(xs) = foreach_to_length(xlist_foreach)(xs)
+
+(* ****** ****** *)
+
 (* end of [CS320-2024-Sum1-assign02-01.sml] *)
 
 			    
